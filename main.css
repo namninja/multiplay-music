@@ -51,7 +51,7 @@ body * {
   .lil-circle {
     position: absolute;
     border-radius: 50%;
-    box-shadow: inset 0 0 10px 2px gray, 0 0 50px rgb(148, 240, 148);
+    box-shadow: inset 0 0 10px 2px gray, 0 0 50px white;
     width: 100px;
     height: 100px;
     opacity: .65;
@@ -64,7 +64,7 @@ body * {
   }
   
   .text {
-    color: darkgreen;
+    color: lightgray;
     font-size: 18px;
      font-family: 'Open Sans', sans-serif;
     

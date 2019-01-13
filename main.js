@@ -1,13 +1,60 @@
+// https://cors-anywhere.herokuapp.com/
+
 'use strict';
-const SONGSTERR_URL = `http://www.songsterr.com/a/ra/songs/byartists.json?artists=`;
+const SONGSTERR_URL = `https://cors-anywhere.herokuapp.com/http://www.songsterr.com/a/ra/songs/byartists.json?artists=`;
 const SONG_INSTRUCTION_URL = `http://www.songsterr.com/a/wa/song?id=`;
 const YOUTUBE_KEY = 'AIzaSyClU_CyBAIHdrxQZz1btz2NhFMn_JYg7oI'; 
 const YOUTUBE_URL = 'https://www.googleapis.com/youtube/v3/search';
+const MUSIXMATCH_KEY = 'e59d18fa14460230b008ccc103aabab8'; 
+const MUSIXMATCH_URL = 'https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search'; 
 const search = {
     nextPageToken: '',
     searchTerms: '',
     totalResults: 0
   }
+const searchData = {
+    currentArtist: null,
+    currentSong: null
+}
+// -------------------------------------------------------------------------------
+// These functions are related to the Musixmatch API
+
+function getSongLyrics(artist, song) {
+    console.log('getSongLyrics ran');
+    const params = {
+      q_artist: artist,
+      q_track: song,
+      page_size: 100,
+      page: 1,
+      s_track_rating: 'desc',
+      apikey: MUSIXMATCH_KEY
+    };
+    const queryString = formatQueryParams(params)
+    const url = MUSIXMATCH_URL + '?' + queryString;
+  
+    console.log(url);
+  
+    fetch(url)
+      .then(response => {
+        if (response.ok) {
+            console.log('ok')
+          return response.json();
+        }
+        throw new Error(response.statusText);
+      })
+      .then(responseJson => console.log(responseJson))
+      .catch(err => {
+        displayLyricsError(err.message);
+    });
+}
+function displayLyricsError(error) {
+    console.log('displayError ran');
+    $('.js-videos').html(`<h3 class="error">Something went wrong: ${error}</h3>`)
+    $('.loading').addClass('hidden');
+    $('.js-videos').removeClass('hidden')
+}
+
+
 // -------------------------------------------------------------------------------
 // These functions are related to the YouTube API
 
@@ -115,10 +162,12 @@ function watchSongForm() {
         event.preventDefault();
         //store user's selected value 
         let artist = $('#search-artist').val()
+        searchData.currentArtist = artist
         console.log(artist)
         let song = $('#song-library').val()
+        searchData.currentSong = song
         console.log(song)
-        let songId = $('option').attr('val')
+        let songId = $('option:selected').attr('val')
         console.log(songId)
         displayTablature(songId)
         let query = artist + ' ' + song
@@ -127,6 +176,7 @@ function watchSongForm() {
         search.searchTerms = query
         $('.loading').removeClass('hidden');
         getYouTubeVideos(query)
+        getSongLyrics(artist, song)
     });
 }
 
@@ -138,7 +188,11 @@ function displayTablature(songId) {
     console.log('displayTablature ran')
     const url = `${SONG_INSTRUCTION_URL}${songId}`
     console.log(url)
-    $('.js-tab-display').attr('src', url)
+    const songInstruction = `
+        <h3>Learn to play this song at Songsterr</h3>
+        <a href='${url}' target="_blank">${searchData.currentSong}</a>
+    `
+    $('.js-tablature').html(songInstruction)
     $('.js-tablature').removeClass('hidden')
 }
 
