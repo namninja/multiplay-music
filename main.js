@@ -6,7 +6,8 @@ const SONG_INSTRUCTION_URL = `http://www.songsterr.com/a/wa/song?id=`;
 const YOUTUBE_KEY = 'AIzaSyClU_CyBAIHdrxQZz1btz2NhFMn_JYg7oI'; 
 const YOUTUBE_URL = 'https://www.googleapis.com/youtube/v3/search';
 const MUSIXMATCH_KEY = 'e59d18fa14460230b008ccc103aabab8'; 
-const MUSIXMATCH_URL = 'https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search'; 
+const MUSIXMATCH_ARTIST_URL = 'https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search'; 
+const MUSIXMATCH_TRACK_URL = 'https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get';
 const search = {
     nextPageToken: '',
     searchTerms: '',
@@ -14,23 +15,44 @@ const search = {
   }
 const searchData = {
     currentArtist: null,
-    currentSong: null
+    currentSong: null,
+    trackID: null,
+    trackURL: null
+
 }
 // -------------------------------------------------------------------------------
 // These functions are related to the Musixmatch API
+function renderLyrics(lyrics, copyright) {
+    console.log('renderLyrics ran');
+    let revisedLyrics = lyrics.replace(/(?:\r\n|\r|\n)/g, '<br>')
+    return `
+    <a class="lyrics-link" href="${searchData.trackURL}" target="_blank">
+    <div class="lyrics-snippet">${revisedLyrics}</div>
+    </a>
+    <p class="copyright">${copyright}</p>
+    `
+}
+function displayLyrics(data) {
+    console.log('displayLyrics ran');
+    console.log(data)
+    const lyricsTarget = data.message.body.lyrics
+    let lyricsData = lyricsTarget.lyrics_body
+    console.log(lyricsData)
+    let copyright = lyricsTarget.lyrics_copyright
+    console.log(copyright)
+    let lyricsSnippet = renderLyrics(lyricsData, copyright)
+    $('.js-lyrics-results').html(lyricsSnippet)
+    $('.js-lyrics').removeClass('hidden')
 
-function getSongLyrics(artist, song) {
-    console.log('getSongLyrics ran');
+}
+function getLyrics(id) {
+    console.log('getLyrics ran');
     const params = {
-      q_artist: artist,
-      q_track: song,
-      page_size: 100,
-      page: 1,
-      s_track_rating: 'desc',
+      track_id: id,
       apikey: MUSIXMATCH_KEY
     };
     const queryString = formatQueryParams(params)
-    const url = MUSIXMATCH_URL + '?' + queryString;
+    const url = MUSIXMATCH_TRACK_URL + '?' + queryString;
   
     console.log(url);
   
@@ -42,16 +64,84 @@ function getSongLyrics(artist, song) {
         }
         throw new Error(response.statusText);
       })
-      .then(responseJson => console.log(responseJson))
+      .then(responseJson => displayLyrics(responseJson))
       .catch(err => {
-        displayLyricsError(err.message);
+        zeroResultsError(err.message);
     });
 }
-function displayLyricsError(error) {
-    console.log('displayError ran');
-    $('.js-videos').html(`<h3 class="error">Something went wrong: ${error}</h3>`)
-    $('.loading').addClass('hidden');
-    $('.js-videos').removeClass('hidden')
+
+function getTrackID(data) {
+    console.log('getTrackID ran');
+    console.log(data)
+    console.log(data.message.header.available)
+    let numResults = data.message.header.available
+    let trackList = data.message.body.track_list
+
+    console.log('tracklist', trackList)
+    if (numResults === 0 ) {
+        zeroResultsError();
+    }
+    else {
+        for (let i = 0; i < trackList.length; i++) {
+            console.log(trackList[i].track.track_name)
+            let trackName = trackList[i].track.track_name
+            let artistName = trackList[i].track.artist_name
+            let currentSong = searchData.currentSong
+            let currentArtist = searchData.currentArtist
+            if ((trackName.toLowerCase() == currentSong.toLowerCase()) && (artistName.toLowerCase() == currentArtist.toLowerCase())) {
+                searchData.trackID = trackList[i].track.track_id
+                searchData.trackURL = trackList[i].track.track_share_url
+            }
+            else {
+                zeroResultsError;
+            }
+        }
+        console.log(searchData.trackID)
+        console.log(searchData.trackURL)
+        getLyrics(searchData.trackID);
+    }
+    
+}
+
+function getTrackData(artist, song) {
+    console.log('getTrackData ran');
+    const params = {
+      q_artist: artist,
+      q_track: song,
+      page_size: 100,
+      page: 1,
+      s_track_rating: 'desc',
+      apikey: MUSIXMATCH_KEY
+    };
+    const queryString = formatQueryParams(params)
+    const url = MUSIXMATCH_ARTIST_URL + '?' + queryString;
+  
+    console.log(url);
+  
+    fetch(url)
+      .then(response => {
+        if (response.ok) {
+            console.log('ok')
+          return response.json();
+        }
+        throw new Error(response.statusText);
+      })
+      .then(responseJson => getTrackID(responseJson))
+      .catch(err => {
+        zeroResultsError(err.message);
+    });
+}
+// function displayLyricsError(error) {
+//     console.log('displayLyricsError ran');
+//     $('.js-lyrics-results').html(`<h4 class="error">Something went wrong: ${error}</h4>`)
+//     $('.loading').addClass('hidden');
+//     $('.js-lyrics').removeClass('hidden')
+// }
+
+function zeroResultsError() {
+    console.log('zeroResultsError ran');
+    $('.js-lyrics-results').html(`<h4 class="error">Sorry, no lyrics found</h4>`)
+    $('.js-lyrics').removeClass('hidden')
 }
 
 
@@ -83,7 +173,7 @@ function formatQueryParams(params) {
     return `
     <div class="col-6 js-video-thumb video-thumb">
       <div class="js-video-thumb video-thumb">
-        <a href="https://www.youtube.com/watch?v=${result.id.videoId}">
+        <a href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank">
           <img src="${result.snippet.thumbnails.medium.url}" class="thumbnail-image" alt="${result.snippet.title}">
         </a>
         <p class="video-title">${result.snippet.title}</p>
@@ -125,7 +215,7 @@ function getYouTubeVideos(query) {
       key: YOUTUBE_KEY,
       q: query,
       part: 'snippet',
-      maxResults: '2',
+      maxResults: '3',
       type: 'video',
       pageToken: search.nextPageToken
     };
@@ -148,7 +238,7 @@ function getYouTubeVideos(query) {
 }
 function displayYouTubeError(error) {
     console.log('displayError ran');
-    $('.js-videos').html(`<h3 class="error">Something went wrong: ${error}</h3>`)
+    $('.js-videos').html(`<h4 class="error">Something went wrong: ${error}</h4>`)
     $('.loading').addClass('hidden');
     $('.js-videos').removeClass('hidden')
 }
@@ -160,23 +250,22 @@ function watchSongForm() {
     $('.js-song-search').on('submit', '.js-song-search-form', event => {
         //override default behavior
         event.preventDefault();
+        $('.js-lyrics').addClass('hidden')
+        $('.js-lyrics-results').empty();
         //store user's selected value 
-        let artist = $('#search-artist').val()
-        searchData.currentArtist = artist
-        console.log(artist)
         let song = $('#song-library').val()
         searchData.currentSong = song
         console.log(song)
         let songId = $('option:selected').attr('val')
         console.log(songId)
         displayTablature(songId)
-        let query = artist + ' ' + song
-        console.log(query)
+        let query = searchData.currentArtist + ' ' + searchData.currentSong
+        console.log(query, "----------------------------------here")
         search.nextPageToken = ''
         search.searchTerms = query
         $('.loading').removeClass('hidden');
         getYouTubeVideos(query)
-        getSongLyrics(artist, song)
+        getTrackData(searchData.currentArtist, searchData.currentSong)
     });
 }
 
@@ -238,7 +327,7 @@ function generateSongLibrary(data) {
 
 function displaySongError() {
     console.log('displayError ran');
-    $('.js-song-search').html(`<h5 class="error">Sorry, there are no available songs for this artist.</h5>`)
+    $('.js-song-search').html(`<h4 class="error">Sorry, there are no available songs for this artist.</h4>`)
     $('.loading').addClass('hidden');
     $('.js-song-search').removeClass('hidden')
 }
@@ -271,11 +360,17 @@ function watchArtistForm() {
     $('.js-search-artist-form').submit(event => {
         $('.js-song-search').addClass('hidden')
         $('.js-videos').addClass('hidden')
+        $('.js-tablature').addClass('hidden')
+        $('.js-lyrics').addClass('hidden')
         //override default behavior
         event.preventDefault();
+
         //store user's selected value 
         let artist = $('#search-artist').val()
+        searchData.currentArtist = artist
         console.log(artist)
+        $('#search-artist').attr("placeholder", artist)
+        $('#search-artist').val("")
         $('.loading').removeClass('hidden');
         getAvailableSongs(artist)
     });
