@@ -1,3 +1,6 @@
+/* font-family: 'Roboto', sans-serif;
+font-family: 'Coiny', cursive;
+font-family: 'Lato', sans-serif; */
 body * {
     box-sizing: border-box;
   }
@@ -8,31 +11,43 @@ body * {
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  font-family: 'Roboto', sans-serif;
   align-items: center;
-  background-image: url(images/musical-background.jpg);
+  /* background-image: url('images/clef-design.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
+  /* background-image: url(images/musical-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; */
   background-color: black;
   color: white;
-
+  min-height: 100vh;
 }
 header {
+  text-align: center;
   display: flex;
+  padding: 2em;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('images/clef-design.jpg');
+  background-image: url('images/musical-background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
   width: 100%;
+  border: 3px inset darkgray;   
+  box-shadow:0px 0px 50px 30px darkgray;
 }
 main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  flex: 1 0 auto;
+  
+}
+footer {
+  flex-shrink: 0;
 }
 .search-artist-form {
   display: flex;
@@ -61,8 +76,46 @@ main {
   align-items: center;
   text-align: center;
 }
+
 .tablature {
   text-align: center;
+}
+#title {
+  font-size: 8vw;
+  margin-bottom: 0px;
+  font-family: 'Coiny', cursive;
+  text-shadow: 3px 2px #FF0000;
+}
+header h4{
+  margin-top: 5px;
+  font-size: 4vw;
+  text-shadow: 1px 1px black;
+}
+#tagline {
+  font-size: 4vw;
+  margin-bottom: 5px;
+  margin-top: 0px;
+  
+  
+}
+@media only screen and (min-width: 550px) {
+  #title {
+    font-size: 2.5vw;
+    margin-bottom: 0px;
+    font-family: 'Coiny', cursive;
+    text-shadow: 3px 2px #FF0000;
+  }
+  header h4{
+    margin-top: 3px;
+    font-size: 1.5vw;
+    text-shadow: 1px 1px black;
+  }
+  #tagline {
+    font-size: 3vw;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    
+  }
 }
   /* LOADER---------------------------------------------------------------------- */
   .load {
