@@ -19,7 +19,7 @@ body {
   /* background-image: url(images/musical-background.jpg);
   background-repeat: no-repeat;
   background-size: cover; */
-  background-color: black;
+  background-color: #003033;
   color: white;
   min-height: 100vh;
 }
@@ -35,16 +35,18 @@ header {
   background-size: cover;
   color: white;
   width: 100%;
-  border: 3px inset darkgray;   
-  box-shadow:0px 0px 50px 30px darkgray;
+  box-shadow:0px 0px 10px black;
+  /* border: 3.5px inset #008267;   
+  box-shadow:0px 0px 50px 30px #008267; */
 }
 main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
   flex: 1 0 auto;
-  
+  width: 100%;
+  padding: 10px;
 }
 footer {
   flex-shrink: 0;
@@ -52,7 +54,7 @@ footer {
 .search-artist-form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 .videos {
@@ -84,34 +86,108 @@ footer {
   font-size: 8vw;
   margin-bottom: 0px;
   font-family: 'Coiny', cursive;
-  text-shadow: 3px 2px #FF0000;
+  text-shadow: 3px 2px #FF4300;
 }
 header h4{
   margin-top: 5px;
-  font-size: 4vw;
+  font-size: 5vw;
   text-shadow: 1px 1px black;
 }
 #tagline {
   font-size: 4vw;
   margin-bottom: 5px;
   margin-top: 0px;
+}
+.artist-search {
   
+  box-shadow:0px 0px 10px black;
+  background-color: #0D7980;
+  padding: 20px;
   
 }
+#artist-search-label {
+  flex-grow: 1;
+  flex-basis: auto;
+  font-size: 1.5em;
+  margin-bottom: 5px;
+  color: #e0ffff;
+  
+}
+.search-artist-sub {
+  min-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  
+}
+#search-artist {
+  font-size: 1.5em;
+  padding: 8px;
+  background-color: #e0ffff;
+  box-shadow:0px 0px 1px rgba(0, 0, 0, 0.541);
+  margin: 3px;
+  flex: 3 0 auto;
+  border: none;
+}
+.search-artist-btn {
+  background-color: #29C3CC;
+  box-shadow:0px 0px 1px rgba(0, 0, 0, 0.541);
+  font-size: 1.5em;
+  padding: 10px;
+  border: none;
+  color: #e0ffff;
+  margin: 3px;
+  flex: 1 0 auto;
+}
+.song-search {
+  margin-top: 10px;
+  box-shadow:0px 0px 10px black;
+  background-color: #0D7980;
+  padding: 20px;
+  
+}
+.song-search-form {
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+}
+#song-library {
+  font-size: 1em;
+  padding: 8px;
+  background-color: #e0ffff;
+  box-shadow:0px 0px 1px rgba(0, 0, 0, 0.541);
+  margin: 3px;
+  flex: 3 0 auto;
+  border: none;
+}
+.search-song-btn {
+  background-color: #29C3CC;
+  box-shadow:0px 0px 1px rgba(0, 0, 0, 0.541);
+  font-size: 1em;
+  padding: 10px;
+  border: none;
+  color: #e0ffff;
+  margin: 3px;
+  flex: 1 0 auto;
+}
+/* Media Queries-------------------------------------------------------------------*/
+
 @media only screen and (min-width: 550px) {
   #title {
-    font-size: 2.5vw;
+    font-size: 3.75vw;
     margin-bottom: 0px;
     font-family: 'Coiny', cursive;
-    text-shadow: 3px 2px #FF0000;
+    text-shadow: 3px 2px #FF4300;
   }
   header h4{
     margin-top: 3px;
-    font-size: 1.5vw;
+    font-size: 2vw;
     text-shadow: 1px 1px black;
   }
   #tagline {
-    font-size: 3vw;
+    font-size: 4vw;
     margin-bottom: 5px;
     margin-top: 0px;
     

@@ -320,6 +320,9 @@ function generateSongLibrary(data) {
     //add html to DOM
     let songLibrary = `
     <form class="js-song-search-form song-search-form">
+                <label id="artist-search-label" for="search-artist">
+                    Find a Song
+                </label>
                 <select name="song-library" id="song-library">
                  ${select}   
                 </select>
