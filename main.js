@@ -175,14 +175,14 @@ function formatQueryParams(params) {
 function renderResult(result) {
     console.log(result);
     return `
-    <div class="col-6 js-video-thumb video-thumb">
-      <div class="js-video-thumb video-thumb">
+    
+      <div class="js-video-container video-container">
         <a href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank">
-          <img src="${result.snippet.thumbnails.medium.url}" class="thumbnail-image" alt="${result.snippet.title}">
+          <img class="video-thumb" src="${result.snippet.thumbnails.medium.url}" class="thumbnail-image" alt="${result.snippet.title}">
         </a>
         <p class="video-title">${result.snippet.title}</p>
       </div>
-    </div>
+   
   `;
 }
 
@@ -315,7 +315,7 @@ function generateSongLibrary(data) {
     let select = '';
     //use for loop to create options 1-50 to be rendered as html
     for (let i = 0; i < songList.length; i++) {
-        select += '<option val=' + songList[i].id + '>' + songList[i].title + '</option>';
+        select += '<option class="song-option" val=' + songList[i].id + '>' + songList[i].title + '</option>';
     }
     //add html to DOM
     let songLibrary = `
