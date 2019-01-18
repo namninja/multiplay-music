@@ -8,11 +8,12 @@
     <link rel="icon" href="images/Unclebob-Spanish-Travel-Guitar.ico">
     <link href="https://fonts.googleapis.com/css?family=Coiny|Lato|Roboto" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link href="main.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-    <header>
+    <header id="top">
         <h1 id="title">MULTIPLAY MUSIC</h1>
         <p id="tagline">Watch videos | Study tablature | Read lyrics</p>
         <h4>Search by artist and conveniently learn your favorite songs</h4>
@@ -23,31 +24,34 @@
                 <label id="artist-search-label" for="search-artist">
                     Look up an Artist
                 </label>
-                
-                    <input id="search-artist" type="text" class="js-search-artist search-artist" placeholder="ex. Nirvana" required>
-                    <button class="search-artist-btn" type="submit">Find Songs</button>
-                
+
+                <input id="search-artist" type="text" class="js-search-artist search-artist" placeholder="ex. Nirvana"
+                    required>
+                <button class="search-artist-btn" type="submit">Find Songs</button>
+
             </form>
         </section>
         <section class="js-song-search song-search hidden">
-            
+
         </section>
-        <section class="js-videos videos hidden" id="video-results" aria-hidden="true">
+        <section class="results">
+            <section class="js-videos videos hidden" id="video-results" aria-hidden="true">
                 <h3 class="js-videos-heading" aria-live="assertive">Watch and Listen</h3>
-                <div class="js-video-results" aria-live="polite">
+                <div class="js-video-results video-results" aria-live="polite">
                 </div>
-                <form name="next-form" class="js-next-form">
+                <form name="next-form" class="js-next-form next-form">
                     <button class="js-next-results next-results hidden video-btn">
                         More Results
                     </button>
                 </form>
-        </section>
-        <section class="js-tablature tablature hidden">
-                
-        </section>
-        <section class="js-lyrics lyrics hidden">
-            <h3 class="js-lyrics-heading" aria-live="assertive">Learn the Lyrics</h3>
-            <div class="js-lyrics-results lyrics-results"></div>
+            </section>
+            <section class="js-tablature tablature hidden">
+
+            </section>
+            <section class="js-lyrics lyrics hidden">
+                <h3 class="js-lyrics-heading" aria-live="assertive">Study the Lyrics</h3>
+                <div class="js-lyrics-results lyrics-results"></div>
+            </section>
         </section>
         <div class="loading hidden">
             <div class="load">
@@ -71,16 +75,20 @@
                     <filter id="blur">
                         <fegaussianblur in="SourceGraphic" stddeviation="13"></fegaussianblur>
                     </filter>
-                    <circle cx="70" cy="70" r="66" fill="transparent" stroke="green" stroke-width="40" filter="url(#blur)"></circle>
+                    <circle cx="70" cy="70" r="66" fill="transparent" stroke="#003033" stroke-width="40" filter="url(#blur)"></circle>
                 </svg>
             </div>
             <div class="text">loading</div>
         </div>
+
     </main>
     <footer>
-        <h6>Desgined by Nam Ninja</h6>
+        <a href="#top">
+        <i class="fas fa-search"></i>
+    </a>
+        <h5 class="footer">Desgined by Nam Ninja</h5>
     </footer>
-    
+
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
     <script src="main.js"></script>

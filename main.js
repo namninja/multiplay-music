@@ -29,7 +29,9 @@ function renderLyrics(lyrics, copyright) {
     <a class="lyrics-link" href="${searchData.trackURL}" target="_blank">
     <div class="lyrics-snippet">${revisedLyrics}</div>
     </a>
-    <p class="copyright">${copyright}</p>
+    <div class="copyright">
+    ${copyright}
+    </div>
     `
 }
 function displayLyrics(data) {
@@ -178,7 +180,7 @@ function renderResult(result) {
     
       <div class="js-video-container video-container">
         <a href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank">
-          <img class="video-thumb" src="${result.snippet.thumbnails.medium.url}" class="thumbnail-image" alt="${result.snippet.title}">
+          <img class="video-thumb" src="${result.snippet.thumbnails.high.url}" class="thumbnail-image" alt="${result.snippet.title}">
         </a>
         <p class="video-title">${result.snippet.title}</p>
       </div>
@@ -219,7 +221,7 @@ function getYouTubeVideos(query) {
         key: YOUTUBE_KEY,
         q: query,
         part: 'snippet',
-        maxResults: '3',
+        maxResults: '2',
         type: 'video',
         pageToken: search.nextPageToken
     };
@@ -286,7 +288,10 @@ function displayTablature(songId) {
     console.log(url)
     const songInstruction = `
         <h3>Learn to play this song at Songsterr</h3>
-        <a href='${url}' target="_blank">${searchData.currentSong}</a>
+        <div class="tab">
+        <a class="tab-link" href='${url}' target="_blank"><img id="tab-img" src="images/tablature.png" alt="tablature">
+        <p>${searchData.currentSong}</p></a>
+        </div>
     `
     $('.js-tablature').html(songInstruction)
     $('.js-tablature').removeClass('hidden')
