@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" name="description" content="Music Education">
     <meta name="viewport" content="width=device-width">
     <title>Multiplay Music | Listen, Watch, Learn, Sing</title>
     <link rel="icon" href="images/Unclebob-Spanish-Travel-Guitar.ico">
     <link href="https://fonts.googleapis.com/css?family=Coiny|Roboto+Slab|Roboto|Exo+2|Major+Mono+Display" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
     <link href="main.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
-    <header id="top">
+    <header role="banner" id="top">
         <h1 id="title">MULTIPLAY MUSIC</h1>
         <p id="tagline">Watch videos | Learn tablature | Study lyrics</p>
         <h4>Search by artist and conveniently learn your favorite songs</h4>
     </header>
-    <main>
-        <section class="artist-search">
+    <main role="main">
+        <section role="region" class="artist-search" aria-labelledby="artist-search">
             <form action="#" class="js-search-artist-form search-artist-form">
                 <label id="artist-search-label" for="search-artist">
                     Look up an Artist
@@ -31,13 +30,12 @@
 
             </form>
         </section>
-        <section class="js-song-search song-search hidden">
-
+        <section role="region" class="js-song-search song-search hidden" aria-labelledby="song-library" aria-live="assertive" aria-controls="song-library">
         </section>
-        <section class="results">
-            <section class="js-videos videos hidden" id="video-results" aria-hidden="true">
-                <h3 class="js-videos-heading" aria-live="assertive">Watch and Listen</h3>
-                <div class="js-video-results video-results" aria-live="polite">
+        <div role="content" class="results">
+            <section role="region" class="js-videos videos hidden" aria-labelledby="video-results" aria-live="assertive" id="video-results">
+                <h3 class="js-videos-heading">Watch and Listen</h3>
+                <div class="js-video-results video-results">
                 </div>
                 <form name="next-form" class="js-next-form next-form">
                     <button class="js-next-results next-results hidden video-btn">
@@ -45,14 +43,14 @@
                     </button>
                 </form>
             </section>
-            <section class="js-tablature tablature hidden">
+            <section role="region" class="js-tablature tablature hidden" aria-labelledby="tablature-results" aria-live="assertive">
 
             </section>
-            <section class="js-lyrics lyrics hidden">
-                <h3 class="js-lyrics-heading" aria-live="assertive">Study the Lyrics</h3>
+            <section role="region" class="js-lyrics lyrics hidden" aria-labelledby="lyrics-results" aria-live="assertive">
+                <h3 class="js-lyrics-heading">Study the Lyrics</h3>
                 <div class="js-lyrics-results lyrics-results"></div>
             </section>
-        </section>
+        </div role="region">
         <div class="loading hidden">
             <div class="load">
                 <div class="gear one">
@@ -82,10 +80,10 @@
         </div>
 
     </main>
-    <footer>
+    <footer role="contentinfo">
         <a href="#top">
-        <i class="fas fa-search"></i>
-    </a>
+            <i class="fas fa-search"></i>
+        </a>
         <h5 class="footer">Desgined by Nam Ninja</h5>
     </footer>
 
@@ -93,5 +91,4 @@
         crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </body>
-
 </html>
