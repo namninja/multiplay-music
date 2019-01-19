@@ -287,7 +287,7 @@ function displayTablature(songId) {
     const url = `${SONG_INSTRUCTION_URL}${songId}`
     console.log(url)
     const songInstruction = `
-        <h3>Learn to play this song at Songsterr</h3>
+        <h3>Learn to play at Songsterr</h3>
         <div class="tab">
         <a class="tab-link" href='${url}' target="_blank"><img id="tab-img" src="images/tablature.png" alt="tablature">
         <p>${searchData.currentSong}</p></a>

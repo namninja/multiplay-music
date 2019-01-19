@@ -1,6 +1,4 @@
-/* font-family: 'Roboto', sans-serif;
-font-family: 'Coiny', cursive;
-font-family: 'Lato', sans-serif; */
+
 body * {
     box-sizing: border-box;
   }
@@ -17,12 +15,6 @@ body {
   flex-direction: column;
   font-family: 'Roboto', sans-serif;
   align-items: center;
-  /* background-image: url('images/clef-design.jpg');
-  background-repeat: no-repeat;
-  background-size: cover; */
-  /* background-image: url(images/musical-background.jpg);
-  background-repeat: no-repeat;
-  background-size: cover; */
   background-color: #003033;
   color: white;
   min-height: 100vh;
@@ -32,16 +24,14 @@ header {
   display: flex;
   padding: 2em;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  
   background-image: url('images/musical-background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
   width: 100%;
   box-shadow:0px 0px 10px black;
-  /* border: 3.5px inset #008267;   
-  box-shadow:0px 0px 50px 30px #008267; */
 }
 main {
   display: flex;
@@ -75,20 +65,24 @@ footer {
   text-align: center;
 }
 #title {
-  font-size: 8vw;
-  margin-bottom: 0px;
-  font-family: 'Coiny', cursive;
-  text-shadow: 3px 2px #FF4300;
+  font-size: 7vw;
+  margin-bottom: 10px;
+  font-family: 'Major Mono Display', monospace;
+  text-shadow: 1px 1px black;
+  
 }
 header h4{
   margin-top: 5px;
   font-size: 5vw;
   text-shadow: 1px 1px black;
+  
 }
 #tagline {
   font-size: 4vw;
   margin-bottom: 5px;
   margin-top: 0px;
+  text-shadow: 2px 2px black;
+  
 }
 .artist-search {
   order: 1;
@@ -132,6 +126,7 @@ header h4{
   color: #e0ffff;
   margin: 3px;
   flex: 1 1 auto;
+  
 }
 
 .search-artist-btn:hover {
@@ -175,6 +170,7 @@ header h4{
   color: #e0ffff;
   margin: 3px;
   flex: 1 1 auto;
+  
 }
 .search-song-btn:hover {
   background-color: #7F3300;
@@ -186,8 +182,9 @@ header h4{
   order: 4;
 }
 .videos, .tablature, .lyrics {
-  background-color: #29C3CC;
+  /* background-color: #29C3CC; */
   /* background-color: #fffacdea; */
+  background-color: #f3f3f3;
 }
 .videos {
   box-shadow:0px 0px 10px black;
@@ -213,7 +210,7 @@ header h4{
 }
 
 .next-results {
-  background-color: #0D7980;
+  background-color: #7F3300;
   box-shadow:0px 0px 1px rgba(0, 0, 0, 0.541);
   font-size: 1em;
   padding: 8px;
@@ -224,7 +221,7 @@ header h4{
   margin-bottom: 8px;
 }
 .next-results:hover {
-  background-color: #331500;
+  background-color: #29C3CC;
 }
 .tablature {
   box-shadow:0px 0px 10px black;
@@ -245,7 +242,7 @@ header h4{
   margin-bottom: 3px;
 }
 #tab-img {
-  width: 30%;
+  width: 35%;
   margin-top: 5px;
 }
 .lyrics {
@@ -272,13 +269,12 @@ a.lyrics-link:hover, a.tab-link:hover {
 }
 
 h3 {
-  /* border: 1px solid black; */
-  padding: 8px;
+  font-family: 'Roboto Slab', serif;
+  padding: 10px;
   width: 90%;
-  box-shadow:1px 1px 1px gray;
-  /* background-color: #fffacdea; */
-  background-color: #4DF5FF;
+  border-bottom: 1px solid #3e3e3e;
   color: #3e3e3e;
+  font-size: 1.5em;
 }
 .copyright {
   color: red;
@@ -290,19 +286,19 @@ h3 {
 .loading {
   order: 1;
 }
+
 /* Media Queries-------------------------------------------------------------------*/
 
 @media only screen and (min-width: 550px) {
   #title {
-    font-size: 3.75vw;
-    margin-bottom: 0px;
-    font-family: 'Coiny', cursive;
-    text-shadow: 3px 2px #FF4300;
+    font-size: 4.75vw;
+    margin-bottom: 5px;
+    
   }
   header h4{
     margin-top: 3px;
-    font-size: 2vw;
-    text-shadow: 1px 1px black;
+    font-size: 2.5vw;
+  
   }
   #tagline {
     font-size: 4vw;
@@ -339,6 +335,15 @@ h3 {
    
     padding: 5px 5px 10px 5px;
     flex: 2 1 auto;
+  }
+  h3 {
+    font-family: 'Roboto Slab', serif;
+    padding: 10px;
+    width: 90%;
+    border-bottom: 1px solid #3e3e3e;
+    color: #3e3e3e;
+    text-align: left;
+    font-size: 1.5em;
   }
 
 }
