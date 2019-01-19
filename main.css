@@ -9,6 +9,9 @@ body * {
   .fa-search {
     color:white;
   }
+  .fa-search:hover {
+    color:yellow;
+  }
 
 body {
   display: flex;
