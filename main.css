@@ -295,6 +295,12 @@ a.lyrics-link:hover, a.tab-link:hover {
   font-family: 'Roboto Slab', serif;
 }
 
+a.lyrics-link:active, a.tab-link:active {
+  font-weight: bold;
+  color: purple;
+  font-family: 'Roboto Slab', serif;
+}
+
 .headings {
   font-family: 'Roboto Slab', serif;
   padding: 10px;
@@ -340,7 +346,7 @@ a.lyrics-link:hover, a.tab-link:hover {
     margin-bottom: 5px;
     margin-top: 0px;
   }
-  
+
 }
 
 @media only screen and (min-width: 1025px) {
