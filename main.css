@@ -5,6 +5,7 @@ body * {
   .hidden {
     display: none;
     visibility: hidden;
+   
   }
   .fa-search {
     color:white;
@@ -16,6 +17,7 @@ body * {
 body {
   display: flex;
   flex-direction: column;
+
   font-family: 'Roboto', sans-serif;
   align-items: center;
   background-color: #003033;
@@ -178,6 +180,11 @@ header h4{
 .search-song-btn:hover {
   background-color: #7F3300;
 }
+
+button:active {
+  transform: translateY(3px);
+}
+
 .loading {
   order: 3;
 }
@@ -186,7 +193,7 @@ header h4{
 }
 .videos, .tablature, .lyrics {
   background-color: #f3f3f3;
-}
+ }
 .videos {
   box-shadow:0px 0px 10px black;
   margin-top: 10px;
@@ -232,9 +239,9 @@ header h4{
   align-items: center;
   text-align: center;
   color: black;
-  padding: 5px;
+  padding: 10px;
   flex: 1 1 auto;
-}
+  }
 .tab p {
   margin-top: 0px;
   margin-bottom: 3px;
@@ -261,8 +268,9 @@ header h4{
 }
 
 a.lyrics-link:hover, a.tab-link:hover {
-  text-decoration: underline;
+  font-weight: bold;
   color: purple;
+  font-family: 'Roboto Slab', serif;
 }
 
 h3 {
@@ -301,43 +309,13 @@ h3 {
     margin-top: 0px;
   }
 }
-@media only screen and (min-width: 1025px) {
-  .results {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: stretch;
-    height: 102vh;
-  }
-  .videos h3 {
-    margin-top: -5px;
-  }
-  .tablature {
-    box-shadow:0px 0px 10px black;
-    margin: 10px 0px 10px 10px;
-    text-align: center;
-    padding: 5px;
-    flex: 1 1 auto;
-    
-  }
-  .lyrics {
-    box-shadow:0px 0px 10px black;
-    margin: 0px 0px 0px 10px;
-    text-align: center;
-    padding: 5px 5px 10px 5px;
-    flex: 2 1 auto;
-  }
-  h3 {
-    font-family: 'Roboto Slab', serif;
-    padding: 10px;
-    width: 90%;
-    border-bottom: 1px solid #3e3e3e;
-    color: #3e3e3e;
-    text-align: left;
-    font-size: 1.5em;
-  }
 
+@media only screen and (min-width: 1025px) {
+.results {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+  
 }
   /* LOADER---------------------------------------------------------------------- */
   .load {
