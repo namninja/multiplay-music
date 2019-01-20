@@ -59,6 +59,7 @@ function displayLyrics(data) {
     let lyricsSnippet = renderLyrics(lyricsData, copyright)
     //display results in DOM
     $('.js-lyrics-results').html(lyricsSnippet)
+    $('.loading').addClass('hidden');
     $('.js-lyrics').removeClass('hidden')
 
 }
@@ -92,7 +93,6 @@ function getLyrics(id) {
         .then(responseJson => displayLyrics(responseJson))
         //if reponse is not ok, then the error we threw will be passed as a parameter in the displayError function and rendered in DOM
         .catch(err => {
-            
             zeroResultsError(err.message);
         });
 }
@@ -224,7 +224,6 @@ function renderVideoResult(result) {
         </a>
         <p class="video-title">${result.snippet.title}</p>
       </div>
-   
   `;
 }
 
@@ -295,7 +294,6 @@ function getYouTubeVideos(query) {
 function displayYouTubeError(error) {
     console.log('displayError ran');
     $('.js-videos').html(`<h4 class="error">Something went wrong: ${error}</h4>`)
-    $('.loading').addClass('hidden');
     $('.js-videos').removeClass('hidden')
 }
 
@@ -331,7 +329,7 @@ function watchSongForm() {
         let query = searchData.currentArtist + ' ' + searchData.currentSong
         console.log(query)
         search.searchTerms = query
-        //displayin loading animation
+        //display loading animation
         $('.loading').removeClass('hidden');
         //fetch youtube data
         getYouTubeVideos(query)
@@ -348,7 +346,7 @@ function watchSongForm() {
 function renderTablature(url) {
     console.log('renderTablature ran')
     return `
-        <h3>Learn to play at Songsterr</h3>
+        <h3 class="headings">Learn to play at Songsterr</h3>
         <div class="tab">
         <a class="tab-link" href='${url}' target="_blank"><img id="tab-img" src="images/tablature.png" alt="tablature">
         <p>${searchData.currentSong}</p></a>
@@ -506,7 +504,6 @@ function watchArtistForm() {
 
 $(function () {
     console.log('App loaded! Waiting for submit!');
-
     watchArtistForm();
     watchSongForm();
     handleMoreVideos()

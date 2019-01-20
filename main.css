@@ -1,36 +1,37 @@
 
 body * {
-    box-sizing: border-box;
-  }
-  .hidden {
-    display: none;
-    visibility: hidden;
-   
-  }
-  .fa-search {
-    color:white;
-  }
-  .fa-search:hover {
-    color:yellow;
-  }
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden; 
+}
+
+.fa-search {
+  color:white;
+}
+
+.fa-search:hover {
+  color:yellow;
+}
 
 body {
   display: flex;
   flex-direction: column;
-
   font-family: 'Roboto', sans-serif;
   align-items: center;
   background-color: #003033;
   color: white;
   min-height: 100vh;
 }
+
 header {
   text-align: center;
   display: flex;
   padding: 2em;
   flex-direction: column;
   justify-content: space-evenly;
-  
   background-image: url('images/musical-background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -38,6 +39,7 @@ header {
   width: 100%;
   box-shadow:0px 0px 10px black;
 }
+
 main {
   display: flex;
   flex-direction: column;
@@ -47,6 +49,7 @@ main {
   width: 100%;
   padding: 10px;
 }
+
 footer {
   flex-shrink: 0;
   display: flex;
@@ -54,6 +57,7 @@ footer {
   align-items: center;
   width: 95%;
 }
+
 .footer {
   text-align: right;
 }
@@ -69,39 +73,41 @@ footer {
 .tablature {
   text-align: center;
 }
+
 #title {
   font-size: 7vw;
   margin-bottom: 10px;
   font-family: 'Major Mono Display', monospace;
   text-shadow: 1px 1px black;
-  
 }
+
 header h4{
   margin-top: 5px;
   font-size: 5vw;
   text-shadow: 1px 1px black;
-  
 }
+
 #tagline {
   font-size: 4vw;
   margin-bottom: 5px;
   margin-top: 0px;
   text-shadow: 2px 2px black;
-  
 }
+
 .artist-search {
   order: 1;
   box-shadow:0px 0px 10px black;
   background-color: #0D7980;
   padding: 20px;
-  
 }
+
 .search-artist-form {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
+
 #artist-search-label {
   flex: 0 0 auto;
   font-size: 1em;
@@ -114,7 +120,6 @@ header h4{
   max-width: 100%;
   min-width: 254px;
   font-size: 1em;
-  
   padding: 8px;
   background-color: #e0ffff;
   box-shadow:0px 0px 1px rgba(0, 0, 0, 0.541);
@@ -122,6 +127,7 @@ header h4{
   flex: 3 1 auto;
   border: none;
 }
+
 .search-artist-btn {
   background-color: #29C3CC;
   box-shadow:0px 0px 1px rgba(0, 0, 0, 0.541);
@@ -131,7 +137,6 @@ header h4{
   color: #e0ffff;
   margin: 3px;
   flex: 1 1 auto;
-  
 }
 
 .search-artist-btn:hover {
@@ -145,14 +150,15 @@ header h4{
   padding: 20px;
   order: 1;
 }
+
 .song-search-form {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
+
 #song-library {
- 
   max-width: 100%;
   min-width: 254px;
   font-size: 1em;
@@ -163,9 +169,11 @@ header h4{
   flex: 3 1 auto;
   border: none;
 }
+
 .song-option {
   word-wrap: normal;
 }
+
 .search-song-btn {
   background-color: #29C3CC;
   box-shadow:0px 0px 1px rgba(0, 0, 0, 0.541);
@@ -175,8 +183,8 @@ header h4{
   color: #e0ffff;
   margin: 3px;
   flex: 1 1 auto;
-  
 }
+
 .search-song-btn:hover {
   background-color: #7F3300;
 }
@@ -188,12 +196,15 @@ button:active {
 .loading {
   order: 3;
 }
+
 .results {
   order: 4;
 }
+
 .videos, .tablature, .lyrics {
   background-color: #f3f3f3;
  }
+
 .videos {
   box-shadow:0px 0px 10px black;
   margin-top: 10px;
@@ -227,9 +238,11 @@ button:active {
   min-width: 254px;
   margin-bottom: 8px;
 }
+
 .next-results:hover {
   background-color: #29C3CC;
 }
+
 .tablature {
   box-shadow:0px 0px 10px black;
   margin: 10px 0px 10px 0px;
@@ -241,27 +254,36 @@ button:active {
   color: black;
   padding: 10px;
   flex: 1 1 auto;
-  }
+}
+
 .tab p {
   margin-top: 0px;
   margin-bottom: 3px;
 }
+
 #tab-img {
   width: 35%;
   margin-top: 5px;
 }
+
 .lyrics {
   box-shadow:0px 0px 10px black;
   margin: 10px 0px 10px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   color: black;
   padding: 10px;
   flex: 1 1 auto;
 }
+
 .lyrics-snippet {
   flex: 1 1 auto;
   padding: 10px;
 }
+
 .lyrics-link, .tab-link {
   text-decoration: none;
   color: black;
@@ -273,7 +295,7 @@ a.lyrics-link:hover, a.tab-link:hover {
   font-family: 'Roboto Slab', serif;
 }
 
-h3 {
+.headings {
   font-family: 'Roboto Slab', serif;
   padding: 10px;
   width: 90%;
@@ -281,15 +303,23 @@ h3 {
   color: #3e3e3e;
   font-size: 1.5em;
 }
+
 .copyright {
   color: red;
   font-size: .9em;
   word-break: normal;
   max-width: 400px;
   margin: 10px;
+  text-align: center;
 }
+
 .loading {
   order: 1;
+}
+
+.bottom-border {
+  border-top: 1px solid #3e3e3e;
+  height: 5px;
 }
 
 /* Media Queries-------------------------------------------------------------------*/
@@ -299,15 +329,18 @@ h3 {
     font-size: 4.75vw;
     margin-bottom: 5px;
   }
+
   header h4{
     margin-top: 3px;
     font-size: 2.5vw;
   }
+
   #tagline {
     font-size: 4vw;
     margin-bottom: 5px;
     margin-top: 0px;
   }
+  
 }
 
 @media only screen and (min-width: 1025px) {
