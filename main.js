@@ -346,12 +346,14 @@ function watchSongForm() {
 function renderTablature(url) {
     console.log('renderTablature ran')
     return `
-        <h3 class="headings">Tablature by Songsterr</h3>
+        <h3 class="headings">Learn the Tablature
+        <p id="poweredby">Powered by Songsterr</p>
+        </h3>
         <div class="tab">
         <img id="tab-img" src="images/tablature.png" alt="tablature">
         <p>${searchData.currentSong}</p>
         <a class="tab-link" href='${url}' target="_blank">
-        <button class="tab-link-btn">Learn to play</button>
+        <button class="tab-link-btn">Full Tablature</button>
         </a>
         </div>
     `

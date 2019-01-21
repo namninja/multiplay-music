@@ -321,6 +321,10 @@ button:active {
   border-top: 1px solid #3e3e3e;
   height: 5px;
 }
+#poweredby {
+  font-size: .5em;
+  font-family: 'Roboto', sans-serif;
+}
 
 /* Media Queries-------------------------------------------------------------------*/
 
