@@ -187,7 +187,7 @@ function getTrackData(artist, song) {
 //but it is not used since failure of API is most likely due to no lyrics found.
 function zeroResultsError() {
     console.log('zeroResultsError ran');
-    $('.js-lyrics-results').html(`<h4 class="error">Sorry, no lyrics found</h4>`)
+    $('.js-lyrics-results').html(`<h4 role="alert" class="error">Sorry, no lyrics found</h4>`)
     $('.js-lyrics').removeClass('hidden')
 }
 
@@ -293,7 +293,7 @@ function getYouTubeVideos(query) {
 //Takes thrown error as parameter and displays in DOM
 function displayYouTubeError(error) {
     console.log('displayError ran');
-    $('.js-videos').html(`<h4 class="error">Something went wrong: ${error}</h4>`)
+    $('.js-videos').html(`<h4 role="alert" class="error">Something went wrong: ${error}</h4>`)
     $('.js-videos').removeClass('hidden')
 }
 
@@ -426,7 +426,7 @@ function generateSongLibrary(data) {
 //Displays an error if there are no songs found due to user error or artist is not in API
 function displaySongError() {
     console.log('displayError ran');
-    $('.js-song-search').html(`<h4 class="error">Sorry, there are no available songs for this artist.</h4>`)
+    $('.js-song-search').html(`<h4 role="alert" class="error">Sorry, there are no available songs for this artist.</h4>`)
     $('.loading').addClass('hidden');
     $('.js-song-search').removeClass('hidden')
 }
@@ -501,11 +501,6 @@ function watchArtistForm() {
         getAvailableSongs(artist)
     });
 }
-
-
-
-
-
 
 
 $(function () {
