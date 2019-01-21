@@ -1,12 +1,11 @@
 # Multiplay Music
 <br>
-[GitHub](http://github.com)
-[https://namninja.github.io/multiplay-music](https://namninja.github.io/multiplay-music)
+<a href="https://namninja.github.io/multiplay-music/">https://namninja.github.io/multiplay-music</a>
 <br>
 <h3>Screen shots</h3
 <br>
   <h4>Search for an Artist</h4>
-  [](https://imgur.com/Pmcuzma)
+  [Imgur](https://i.imgur.com/Pmcuzma.jpg)
   <h4>If the artist exists in the Songsterr API, then a drop down of available songs will populate.</h4>
   <img src="https://imgur.com/uXSxykS">
   <h4>Once a song is chosen, videos of the song will be displayed</h4>
