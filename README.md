@@ -1,5 +1,6 @@
 # Multiplay Music
 <br>
+[GitHub](http://github.com)
 [https://namninja.github.io/multiplay-music](https://namninja.github.io/multiplay-music)
 <br>
 <h3>Screen shots</h3
