@@ -70,10 +70,6 @@ footer {
   text-align: center;
 }
 
-.tablature {
-  text-align: center;
-}
-
 #title {
   font-size: 7vw;
   margin-bottom: 10px;
@@ -214,7 +210,7 @@ button:active {
   align-items: center;
   text-align: center;
   color: black;
-  padding: 5px;
+  padding: 10px;
   flex: 2 1 auto;
 }
 
@@ -234,9 +230,8 @@ button:active {
   padding: 8px;
   border: none;
   color: #e0ffff;
-  margin: 3px;
   min-width: 254px;
-  margin-bottom: 8px;
+  margin-bottom: 3px 3px 8px 3px;
 }
 
 .next-results:hover {
@@ -252,13 +247,13 @@ button:active {
   align-items: center;
   text-align: center;
   color: black;
-  padding: 10px;
+  padding: 10px 10px 10px 10px;
   flex: 1 1 auto;
 }
 
 .tab p {
   margin-top: 0px;
-  margin-bottom: 3px;
+  margin-bottom: 10px;
 }
 
 #tab-img {
@@ -284,21 +279,20 @@ button:active {
   padding: 10px;
 }
 
-.lyrics-link, .tab-link {
-  text-decoration: none;
-  color: black;
+.lyrics-link-btn, .tab-link-btn {
+  background-color: #7F3300;
+  box-shadow:0px 0px 1px rgba(0, 0, 0, 0.541);
+  font-size: 1em;
+  padding: 8px;
+  border: none;
+  color: #e0ffff;
+  min-width: 254px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
-a.lyrics-link:hover, a.tab-link:hover {
-  font-weight: bold;
-  color: purple;
-  font-family: 'Roboto Slab', serif;
-}
-
-a.lyrics-link:active, a.tab-link:active {
-  font-weight: bold;
-  color: purple;
-  font-family: 'Roboto Slab', serif;
+.lyrics-link-btn:hover, .tab-link-btn:hover {
+  background-color: #29C3CC;
 }
 
 .headings {
@@ -312,10 +306,10 @@ a.lyrics-link:active, a.tab-link:active {
 
 .copyright {
   color: red;
-  font-size: .9em;
+  font-size: .75em;
   word-break: normal;
   max-width: 400px;
-  margin: 10px;
+  margin: 10px auto;
   text-align: center;
 }
 

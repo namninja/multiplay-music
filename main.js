@@ -35,8 +35,10 @@ function renderLyrics(lyrics, copyright) {
     //replaces /n with <br> to display properly
     let revisedLyrics = lyrics.replace(/(?:\r\n|\r|\n)/g, '<br>')
     return `
-    <a class="lyrics-link" href="${searchData.trackURL}" target="_blank">
+    
     <div class="lyrics-snippet">${revisedLyrics}</div>
+    <a class="lyrics-link" href="${searchData.trackURL}" target="_blank">
+    <button class="lyrics-link-btn">Full Lyrics</button>
     </a>
     <div class="copyright">
     ${copyright}
@@ -346,10 +348,13 @@ function watchSongForm() {
 function renderTablature(url) {
     console.log('renderTablature ran')
     return `
-        <h3 class="headings">Learn to play at Songsterr</h3>
+        <h3 class="headings">Tablature by Songsterr</h3>
         <div class="tab">
-        <a class="tab-link" href='${url}' target="_blank"><img id="tab-img" src="images/tablature.png" alt="tablature">
-        <p>${searchData.currentSong}</p></a>
+        <img id="tab-img" src="images/tablature.png" alt="tablature">
+        <p>${searchData.currentSong}</p>
+        <a class="tab-link" href='${url}' target="_blank">
+        <button class="tab-link-btn">Learn to play</button>
+        </a>
         </div>
     `
 }
