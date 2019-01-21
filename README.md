@@ -1,6 +1,6 @@
-<h1>Multiplay Music</h1>
+# Multiplay Music
 <br>
-<a href="https://namninja.github.io/multiplay-music/">https://namninja.github.io/multiplay-music/</a>
+[https://namninja.github.io/multiplay-music/](https://namninja.github.io/multiplay-music/)
 <br>
 <h3>Screen shots</h3
 <br>
