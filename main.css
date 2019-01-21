@@ -216,7 +216,7 @@ button:active {
 
 .video-thumb {
   max-width: 80%;
-  height: auto;
+  max-height: auto;
 }
 
 .next-form {

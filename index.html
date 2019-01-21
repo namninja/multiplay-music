@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
         crossorigin="anonymous">
     <link href="main.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">function execute_YTvideo(){return youtube.query({ids:"channel==MINE",startDate:"2018-01-01",endDate:"2018-12-31",metrics:"views,estimatedMinutesWatched,averageViewDuration,averageViewPercentage,subscribersGained",dimensions:"day",sort:"day"}).then(function(e){},function(e){console.error("Execute error",e)})}</script>
 </head>
 <body>
     <header role="banner" id="top">
@@ -37,7 +38,7 @@
             <section role="region" class="js-videos videos hidden" aria-labelledby="video-results" aria-live="assertive"
                 id="video-results">
                 <h3 class="js-videos-heading headings">Watch and Listen</h3>
-                <div class="js-video-results video-results">
+                <div class="js-video-results video-results youtube-embed">
                 </div>
                 <form name="next-form" class="js-next-form next-form">
                     <button class="js-next-results next-results hidden video-btn">
