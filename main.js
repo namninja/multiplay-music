@@ -220,10 +220,11 @@ function formatQueryParams(params) {
 function renderVideoResult(result) {
     console.log(result);
     return `
-      <div class="js-video-container video-container">
-        <a href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank">
-          <img class="video-thumb" src="${result.snippet.thumbnails.high.url}" class="thumbnail-image" alt="${result.snippet.title}">
-        </a>
+    <div class="youtube-embed">
+    <iframe allowFullScreen="allowFullScreen" src="https://www.youtube.com/embed/${result.id.videoId}?ecver=1&amp;iv_load_policy=1&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp;width=560&amp;width=560" width="560" height="315" allowtransparency="true" frameborder="0">
+    <script type="text/javascript">function execute_YTvideo(){return youtube.query({ids:"channel==MINE",startDate:"2018-01-01",endDate:"2018-12-31",metrics:"views,estimatedMinutesWatched,averageViewDuration,averageViewPercentage,subscribersGained",dimensions:"day",sort:"day"}).then(function(e){},function(e){console.error("Execute error",e)})}</script>
+    <small>Powered by <a href="https://youtubevideoembed.com/">Embed YouTube Video</a></small>
+    </iframe>
         <p class="video-title">${result.snippet.title}</p>
       </div>
   `;
