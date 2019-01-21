@@ -487,6 +487,7 @@ function watchArtistForm() {
         hideResults()
         //store user's selected value 
         let artist = $('#search-artist').val()
+        artist = artist.trim()
         searchData.currentArtist = artist
         console.log(artist)
         //instead of completely clearing the input, store it as a placeholder
