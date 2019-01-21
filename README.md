@@ -5,7 +5,11 @@
 <h3>Screen shots</h3
 <br>
   <h4>Search for an Artist</h4>
+<<<<<<< HEAD
   ![Landing Page](scrnshots/mpm1.JPG)
+=======
+  ![Landing Page](scrnshots/mpm.1.JPG)
+>>>>>>> f5a8c323549771af987e431f27903808a86ef074
   <h4>If the artist exists in the Songsterr API, then a drop down of available songs will populate.</h4>
   <img src="https://imgur.com/uXSxykS">
   <h4>Once a song is chosen, videos of the song will be displayed</h4>
