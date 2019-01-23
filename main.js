@@ -423,6 +423,12 @@ function generateSongLibrary(data) {
     $('.js-song-search').removeClass('hidden')
 }
 
+function getArtistName(data) {
+    console.log('getArtistName ran')
+    console.log(data[0].artist.name)
+    searchData.currentArtist = data[0].artist.name
+}
+
 //Displays an error if there are no songs found due to user error or artist is not in API
 function displaySongError() {
     console.log('displayError ran');
@@ -447,6 +453,7 @@ function getAvailableSongs(artist) {
         .then(responseJson => {
             if (responseJson.length > 0) {
                 generateSongLibrary(responseJson)
+                getArtistName(responseJson)
             }
             //if the artist is not in the API or the user mispelled the name, an error will display
             else {
@@ -490,7 +497,6 @@ function watchArtistForm() {
         //store user's selected value 
         let artist = $('#search-artist').val()
         artist = artist.trim()
-        searchData.currentArtist = artist
         console.log(artist)
         //instead of completely clearing the input, store it as a placeholder
         $('#search-artist').attr("placeholder", artist)
