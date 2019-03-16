@@ -3,13 +3,13 @@
 'use strict';
 
 //These are the end points for the API calls 
-const SONGSTERR_URL = `http://www.songsterr.com/a/ra/songs/byartists.json?artists=`;
+const SONGSTERR_URL = `https://cors-anywhere.herokuapp.com/http://www.songsterr.com/a/ra/songs/byartists.json?artists=`;
 const SONG_INSTRUCTION_URL = `http://www.songsterr.com/a/wa/song?id=`;
 const YOUTUBE_KEY = 'AIzaSyClU_CyBAIHdrxQZz1btz2NhFMn_JYg7oI';
 const YOUTUBE_URL = 'https://www.googleapis.com/youtube/v3/search';
 const MUSIXMATCH_KEY = 'e59d18fa14460230b008ccc103aabab8';
-const MUSIXMATCH_ARTIST_URL = 'http://api.musixmatch.com/ws/1.1/track.search';
-const MUSIXMATCH_TRACK_URL = 'http://api.musixmatch.com/ws/1.1/track.lyrics.get';
+const MUSIXMATCH_ARTIST_URL = 'https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search';
+const MUSIXMATCH_TRACK_URL = 'https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get';
 
 //This is search data for youTube API to be used in "More Results" functionality
 const search = {
